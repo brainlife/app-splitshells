@@ -10,9 +10,9 @@
   <a href="https://github.com/brainlife/app-splitshells/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg" alt="MIT license"></a>
 </p>
 
-> 📍 **This branch, `1.2`, is the brainlife.io App Split Shells** ([doi:10.25663/bl.app.17](https://doi.org/10.25663/bl.app.17)).
+> **This branch, `1.2`, is the brainlife.io App Split Shells** ([doi:10.25663/bl.app.17](https://doi.org/10.25663/bl.app.17)).
 
-## 🧠 At a glance
+## At a glance
 
 <!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
 
@@ -22,26 +22,26 @@ Rounds b-values to the nearest bvals_round, treats b-values at or below b0_max a
 
 | | |
 |---|---|
-| 📥 **Inputs** | `neuro/dwi` |
-| 📤 **Outputs** | `neuro/dwi` |
-| 🐳 **Container** | `brainlife/mcr:neurodebian1604-r2017a` |
-| ⚙️ **Resources** | 1 CPUs · 29 GB memory · 0.33 h walltime |
-| 🔗 **Run it** | [doi.org/10.25663/bl.app.17](https://doi.org/10.25663/bl.app.17) |
+| **Inputs** | `neuro/dwi` |
+| **Outputs** | `neuro/dwi` |
+| **Container** | `brainlife/mcr:neurodebian1604-r2017a` |
+| **Resources** | 1 CPUs · 29 GB memory · 0.33 h walltime |
+| **Run it** | [doi.org/10.25663/bl.app.17](https://doi.org/10.25663/bl.app.17) |
 
-#### 📥 Inputs
+#### Inputs
 
 | Input | Datatype | Required | Description |
 |---|---|---|---|
 | `dwi` | `neuro/dwi` (!single_shell) | yes | Multi-shell dwi data. Must contain volumes at the requested shell b-value after rounding. |
 
-#### 📤 Outputs
+#### Outputs
 
 | Output | Datatype | Description |
 |---|---|---|
 | `output` | `neuro/dwi` | DWI with only the chosen shell and the b0 volumes, with matching bvecs and rounded bvals. |
 
 <details>
-<summary><b>⚙️ Parameters</b> (3)</summary>
+<summary><b>Parameters</b> (3)</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
@@ -53,9 +53,9 @@ Rounds b-values to the nearest bvals_round, treats b-values at or below b0_max a
 
 <!-- brainlife-app:end -->
 
-## 🚀 Running the App
+## Running the App
 
-### ☁️ On brainlife.io
+### On brainlife.io
 
 Open the App at [doi.org/10.25663/bl.app.17](https://doi.org/10.25663/bl.app.17), choose a multi-shell `neuro/dwi` dataset, set the parameters and press **Execute**. The single-shell DWI is archived as a new `neuro/dwi` dataset tagged `single_shell`. Use it before methods that need single-shell data, such as some tensor or CSD fits.
 
@@ -65,7 +65,7 @@ A DWI is made of many volumes with different gradient directions (bvecs) and str
 - `b0_max`: treat b-values at or below this value as b0 (default 200).
 - `shell`: the rounded b-value of the shell to keep (default 1000).
 
-### 💻 Locally
+### Locally
 
 You need [Singularity/Apptainer](https://apptainer.org/). The App runs compiled MATLAB code (vistasoft and jsonlab) in the `brainlife/mcr:neurodebian1604-r2017a` container.
 
@@ -89,7 +89,7 @@ You need [Singularity/Apptainer](https://apptainer.org/). The App runs compiled 
    ./main
    ```
 
-### 🧪 Sample data
+### Sample data
 
 Download a sample DWI from brainlife.io with the [brainlife CLI](https://github.com/brainlife/cli):
 
@@ -100,7 +100,7 @@ mkdir input
 bl dataset download 5a050a00eec2b300611abff3 && mv 5a050a00eec2b300611abff3 input/dwi
 ```
 
-## 📦 Outputs
+## Outputs
 
 Written to the working directory:
 
@@ -110,11 +110,11 @@ dwi.bvecs    matching gradient directions
 dwi.bvals    matching b-values, rounded
 ```
 
-## 🩺 Troubleshooting
+## Troubleshooting
 
 - **`output missing`**: `dwi.nii.gz` was not written, for example because no volumes matched the shell. Check `shell` against the rounded bvals of the input.
 
-## 📚 Citing
+## Citing
 
 > [!TIP]
 > If you use this App in your work, please cite the App, the software it builds on and brainlife.io (below). GitHub's **Cite this repository** button gives the App citation in APA and BibTeX.
@@ -123,7 +123,7 @@ dwi.bvals    matching b-values, rounded
 - Avesani P, McPherson B, Hayashi S, et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. Sci Data 6, 69 (2019). [doi:10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
 - Hayashi S, Caron BA, Heinsfeld AS, et al. brainlife.io: a decentralized and open-source cloud platform to support neuroscience research. *Nature Methods* 21:809–813 (2024). [doi:10.1038/s41592-024-02237-2](https://doi.org/10.1038/s41592-024-02237-2)
 
-## 👥 Authors
+## Authors
 
 - Lindsey Kitchell
 - Soichi Hayashi
@@ -131,7 +131,7 @@ dwi.bvals    matching b-values, rounded
 
 **Contributors:** Giulia Bertò
 
-## 💰 Funding
+## Funding
 
 [![Wellcome-226486/Z/22/Z](https://img.shields.io/badge/Wellcome-226486%2FZ%2F22%2FZ-purple.svg)](https://wellcome.org/)
 [![NIH-NINDS-U24NS140384](https://img.shields.io/badge/NIH_NINDS-U24NS140384-green.svg)](https://reporter.nih.gov/project-details/11261037)
@@ -150,6 +150,6 @@ dwi.bvals    matching b-values, rounded
 
 <sub>brainlife.io is publicly funded, and acknowledging that support helps keep it running. This App was developed with support from Wellcome, the U.S. National Institutes of Health (including the BRAIN Initiative BRAIN CONNECTS program: The Axonal Projectome EXchange, U24NS140384, and the Center for Mesoscale Connectomics, UM1NS132207) and the U.S. National Science Foundation.</sub>
 
-## ⚖️ License
+## License
 
 MIT.
