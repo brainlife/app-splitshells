@@ -9,7 +9,7 @@ Diffusion-weighted imaging (DWI) data contsists of several diffusion weight imag
 - Soichi Hayashi (hayashis@iu.edu)
 
 ### Project directors
-- Franco Pestilli (franpest@indiana.edu)
+- Franco Pestilli ([@francopestilli](https://github.com/francopestilli))
 
 ### Funding Acknowledgement
 brainlife.io is publicly funded and for the sustainability of the project it is helpful to Acknowledge the use of the platform. We kindly ask that you acknowledge the funding below in your publications and code reusing this code.
