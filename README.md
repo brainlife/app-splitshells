@@ -3,6 +3,35 @@
 
 # app-splitshells
 
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+**Extracts a single b-value shell and the b0 volumes from multi-shell DWI, rounding b-values to a chosen step, using MATLAB and vistasoft.**
+
+Rounds b-values to the nearest bvals_round, treats b-values at or below b0_max as b0, and keeps the volumes, bvecs and bvals whose rounded b-value equals the chosen shell or 0. Use it before methods that need single-shell data (such as some tensor or CSD fits).
+
+Run it on brainlife.io: [https://doi.org/10.25663/bl.app.17](https://doi.org/10.25663/bl.app.17)
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `dwi` | `neuro/dwi` (!single_shell) | yes | Multi-shell dwi data. Must contain volumes at the requested shell b-value after rounding. |
+
+| Output | Datatype | Description |
+|---|---|---|
+| `output` | `neuro/dwi` | DWI with only the chosen shell and the b0 volumes, with matching bvecs and rounded bvals. |
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `bvals_round` | number | `100` | bvals will be rounded up to nearest bvals with this value. For example, 100 means 2401-2499 will be rounded to 2500. |
+| `shell` | integer | `1000` | bval corresponding to the shell you want to extract. |
+| `b0_max` | number | `200` | Any bvals equal or less than this value will be considered b0. |
+
+Runtime: container `brainlife/mcr:neurodebian1604-r2017a`; 1 CPUs; 29 GB memory; 0.33 h walltime.
+
+Please cite:
+- Avesani P, McPherson B, Hayashi S, et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. Sci Data 6, 69 (2019). [doi:10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
+
+<!-- brainlife-app:end -->
+
 dwi images contsists of several diffusion weight images (volumes) with different gradient directions (bvecs) and strenghth (bvals). Some processing can only run on specific bvals (aka "single shell"). This service will look for volumes with specific bvals and pull those images to create a "single shell" image. bvecs are often similar but not exactly the same. This App also allows you to specify range of bvals to be rounded to the nearest 100s (like 1980 to 2000, for example).
 
 ### Authors
